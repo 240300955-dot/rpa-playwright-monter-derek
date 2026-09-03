@@ -1,14 +1,26 @@
-Nombre:
-Fecha:
+Nombre: Derek Monter Palafox
+Fecha: 02/09/2026
 
-1. ¿Qué diferencia existe entre una excepción técnica y una excepción de negocio?
+1. ¿Qué diferencia existe entre una excepción técnica y una de negocio?
+Una excepción técnica se presenta cuando algo falla en el funcionamiento del sistema o del código. Esto puede ocurrir si el servidor no está activo, si un elemento de la página no se encuentra, 
+si hay problemas de conexión o si el navegador no responde correctamente. En cambio, una excepción de negocio sucede cuando el sistema funciona de manera correcta, pero el resultado que entrega no es el esperado 
+según las reglas de la aplicación. Un ejemplo claro es cuando se consulta una matrícula inexistente como IAI9999. El portal responde correctamente indicando que la matrícula no existe, por lo que no se trata de un 
+error técnico sino de una situación prevista por la lógica del negocio.
 
+2. ¿Por qué son preferibles los localizadores semánticos?
+Los localizadores semánticos son preferibles porque se basan en la forma en que una persona usuaria percibe e interactúa con la interfaz. 
+Utilizan roles, etiquetas y nombres visibles en lugar de depender de coordenadas de pantalla o de clases CSS que pueden cambiar con facilidad. 
+Esto hace que el código sea más legible, más fácil de entender y más resistente ante modificaciones visuales de la página. Además, refleja de manera más clara la intención de
+la automatización, lo que facilita el mantenimiento y la revisión del bot a futuro.
 
-2. ¿Por qué son preferibles los localizadores semánticos frente a coordenadas de pantalla?
+3. ¿Por qué expect_download se prepara antes del clic?
+Se prepara antes del clic porque la descarga es un evento asíncrono. Esto significa que el archivo puede comenzar a descargarse casi de inmediato después de pulsar el botón.
+Si la espera se declara después del clic, existe el riesgo de que el evento ya haya ocurrido y Playwright no logre detectarlo a tiempo. Al preparar la espera con anticipación
+se garantiza que el programa esté listo para capturar el evento de descarga en el momento exacto en que se produce, asegurando así que el archivo se obtenga de forma confiable.
 
-
-3. ¿Por qué expect_download() se prepara antes de hacer clic en el enlace de descarga?
-
-
-4. ¿Qué tendría que cambiar el bot para procesar una lista de matrículas?
+4. ¿Qué cambiaría para procesar una lista de matrículas?
+Para procesar una lista de matrículas crearía una lista que contenga todas las matrículas a consultar. 
+Luego utilizaría un ciclo for para recorrer cada una de ellas de forma automática. Dentro del ciclo ejecutaría el flujo completo de consulta,
+validación del resultado, descarga del kárdex en caso de éxito y registro de la excepción de negocio cuando corresponda. También podría guardar los resultados de cada matrícula 
+en un archivo o en una estructurade datos para tener un registro ordenado de todo el proceso.
 
