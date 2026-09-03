@@ -55,8 +55,7 @@ with sync_playwright() as playwright:
                 print(f"{matricula} -> {clasificacion} -> {ruta_pdf}")
 
         print("\n=== Ejecución completada ===")
-        # Pausa para que puedas tomar la captura de la terminal (ejecucion-final.png)
-        page.wait_for_timeout(5000)
+      
 
     except Exception as error:
         print("Error técnico:", error)
